@@ -1,4 +1,4 @@
-import {API_URL} from "../(home)/page";
+import {API_URL} from "../app/(home)/page";
 import {json} from "node:stream/consumers";
 
 async function getVideos(id: string) {

@@ -1,7 +1,7 @@
 import {API_URL} from "../../../(home)/page";
 import {json} from "node:stream/consumers";
-import MovieVideos from "../../../components/movie-videos";
-import MovieInfo from "../../../components/movie-info";
+import MovieVideos from "../../../../components/movie-videos";
+import MovieInfo from "../../../../components/movie-info";
 import {Suspense} from "react";
 import Loading from "../../../(home)/loading";
 

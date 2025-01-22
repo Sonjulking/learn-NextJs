@@ -1,5 +1,5 @@
-import Avatar from "../components/avatar";
-import Navigation from "../components/navigation";
+import Avatar from "../../components/avatar";
+import Navigation from "../../components/navigation";
 
 export const metadata = {
     title: 'About Us',
