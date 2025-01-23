@@ -22,7 +22,10 @@ export default function Movie({title, id, poster_path}: IMovieProps) {
                             alt={title}
                             onClick={onClick}
                     />
-                    <Link href={`/movies/${id}`}>{title}</Link>
+                    <Link
+                            prefetch
+                            href={`/movies/${id}`}
+                    >{title}</Link>
                 </div>
             </div>
     );
