@@ -4,7 +4,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
-        "start": "next start -p 3003"
+        "build": "next build",
+        "start": "next start"
     },
     "keywords": [],
     "author": "",
