@@ -6,6 +6,9 @@ export async function getMovie(id: string) {
     /*await new Promise((resolve) => setTimeout(resolve, 5000));*/
     const response = await fetch(`${API_URL}/${id}`);
     console.log(`하이하이 ${API_URL}`);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch movie: ${response.status}`);
+    }
     return response.json();
 }
 
