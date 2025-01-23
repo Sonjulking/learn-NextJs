@@ -1,21 +1,28 @@
 import {API_URL} from "../../../(home)/page";
 import {json} from "node:stream/consumers";
 import MovieVideos from "../../../../components/movie-videos";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, {getMovie} from "../../../../components/movie-info";
 import {Suspense} from "react";
 import Loading from "../../../(home)/loading";
 
-export default async function MovieDetail({
-    params: {id},
-}: {
+interface IParams {
     params: { id: string };
-}) {
+}
+
+
+export async function generateMetadata({params: {id}}: IParams) {
+    const movie = await getMovie(id);
+    return {
+        title: movie.title,
+    };
+}
+
+export default async function MovieDetailPage({params: {id}}: IParams) {
     /*    const movie = await getMovie(id);
         const videos = await getVideos(id);*/
     //const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
     return (
             <div>
-                <h1>{id} : MOVIE DETAIL PAGE!!! </h1>
                 <Suspense fallback={<h1>Loading Movie Info</h1>}>
                     <MovieInfo id={id}/>
                 </Suspense>

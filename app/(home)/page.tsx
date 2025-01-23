@@ -7,6 +7,8 @@ no-store: 캐시를 전혀 사용하지 않을 때
 export const revalidate = 10; // 10초마다 재검증*/
 
 import Link from "next/link";
+import Movie from "../../components/movie";
+import styles from "../../styles/hompage.module.css";
 
 export const metadata = {
     title: "Home",
@@ -40,9 +42,28 @@ export default async function HomePage() {
     const movies = await getMovies();
     /*return <div>{JSON.stringify(movies)}</div>;*/
     return (
-            <div>
-                {movies.map(movie =>
-                        <li key={movie.id}><Link href={`/movies/${movie.id}`}>{movie.title}</Link></li>)}
+            /*     <div>
+                     {movies.map(movie =>
+                             <li key={movie.id}><Link href={`/movies/${movie.id}`}>{movie.title}</Link></li>)}
+                 </div>*/
+            /*            <div>
+                            {movies.map((movie) => (
+                                    <div key={movie.id}>
+                                        <img src={movie.poster_path} alt={movie.title}/>
+                                        <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
+                                    </div>
+                            ))}
+                        </div>*/
+
+            <div className={styles.container}>
+                {movies.map((movie) => (
+                        <Movie
+                                key={movie.id}
+                                title={movie.title}
+                                id={movie.id}
+                                poster_path={movie.poster_path}
+                        />
+                ))}
             </div>
     );
 }
