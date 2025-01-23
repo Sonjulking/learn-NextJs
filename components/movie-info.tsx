@@ -1,9 +1,9 @@
-import {API_URL} from "../app/(home)/page";
 import potato from "../styles/movie-info.module.css";
 
 export async function getMovie(id: string) {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     console.log(`Fetching movies : ${Date.now()}`);
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    /*await new Promise((resolve) => setTimeout(resolve, 5000));*/
     const response = await fetch(`${API_URL}/${id}`);
     console.log(`하이하이 ${API_URL}`);
     return response.json();

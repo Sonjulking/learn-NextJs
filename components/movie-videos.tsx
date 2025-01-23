@@ -1,10 +1,10 @@
-import {API_URL} from "../app/(home)/page";
 import {json} from "node:stream/consumers";
 import styles from "../styles/movie.videos.module.css";
 
 async function getVideos(id: string) {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     console.log(`Fetching videos : ${Date.now()}`);
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    /*await new Promise((resolve) => setTimeout(resolve, 3000));*/
     //throw new Error("Something Broke");
     const response = await fetch(`${API_URL}/${id}/videos`);
     return response.json();

@@ -1,4 +1,3 @@
-import {API_URL} from "../../../(home)/page";
 import {json} from "node:stream/consumers";
 import MovieVideos from "../../../../components/movie-videos";
 import MovieInfo, {getMovie} from "../../../../components/movie-info";
