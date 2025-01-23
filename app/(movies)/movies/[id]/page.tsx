@@ -4,12 +4,11 @@ import {Suspense} from "react";
 import Loading from "../../../(home)/loading";
 
 interface IParams {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
-
 export async function generateMetadata({params}: IParams) {
-    const {id} = await Promise.resolve(params);
+    const {id} = await params;
     const movie = await getMovie(id);
     return {
         title: movie.title,
@@ -17,7 +16,7 @@ export async function generateMetadata({params}: IParams) {
 }
 
 export default async function MovieDetailPage({params}: IParams) {
-    const {id} = await Promise.resolve(params);
+    const {id} = await params;
     /*    const movie = await getMovie(id);
         const videos = await getVideos(id);*/
     //const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
