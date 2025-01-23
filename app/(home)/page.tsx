@@ -9,13 +9,14 @@ export const revalidate = 10; // 10초마다 재검증*/
 import Link from "next/link";
 import Movie from "../../components/movie";
 import styles from "../../styles/hompage.module.css";
+import {API_URL} from "../constants";
 
 export const metadata = {
     title: "Home",
 };
 
-const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
-
+//const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+//export const 를 타입스크립트에서는 사용못함.
 //export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 async function getMovies() {
